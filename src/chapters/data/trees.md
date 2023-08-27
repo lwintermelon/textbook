@@ -78,19 +78,12 @@ let rec size = function
 ## Representation with Records
 
 Next, let's revise our tree type to use use a record type to represent a tree
-node. In OCaml we have to define two mutually recursive types, one to represent
-a tree node, and one to represent a (possibly empty) tree:
+node:
 
 ```{code-cell} ocaml
-type 'a tree =
-  | Leaf
-  | Node of 'a node
-
-and 'a node = {
-  value: 'a;
-  left: 'a tree;
-  right: 'a tree
-}
+type 'a tree = 
+  | Leaf 
+  | Node of { value : 'a; left : 'a tree; right : 'a tree }
 ```
 
 Here's an example tree:
